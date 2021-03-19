@@ -1,0 +1,27 @@
+img#logo {
+    position: inherit;
+    left: inherit;
+    height: 50px;
+    width: auto;
+  }
+
+.mat-toolbar{
+    background-color: #c2e4f8 !important;
+}
+
+span {
+  color: #fff;
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.username {
+  margin: 20px;
+}
+

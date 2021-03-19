@@ -1,0 +1,68 @@
+<mat-toolbar>
+  <img src="../assets/img/logo.png" id="logo" />
+  <span fxFlex></span>
+
+  <ng-container *ngIf="!(authenticated$ | async)">
+    <button mat-button routerLink="/auth/login">
+      <mat-icon>input</mat-icon>
+      &nbsp;Login
+    </button>
+
+    <button mat-button routerLink="/auth/register">
+      <mat-icon>person_add</mat-icon>
+      &nbsp;Cadastrar
+    </button>
+
+  </ng-container>
+
+  <ng-container *ngIf="(authenticated$ | async) && (user$ | async)">
+    <button mat-icon-button routerLink="/main/people">
+      <mat-icon>home</mat-icon>
+    </button>
+
+    <button mat-icon-button routerLink="/main/products">
+      <mat-icon>shop</mat-icon>
+    </button>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <p class="username">{{(user$|async)?.email}}</p>
+      <mat-divider></mat-divider>
+
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>android</mat-icon>
+        Contato por Chatbot
+      </button>
+
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>message</mat-icon>
+        Contato por WhatsApp
+      </button>
+
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>contact_mail</mat-icon>
+        Contato por Email
+      </button>
+
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        Sair
+      </button>
+
+    </mat-menu>
+    
+  </ng-container>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+
+<footer>
+  <mat-toolbar>
+    <button mat-icon-button onclick="window.open('https://www.facebook.com/bemolonline/')" title="Facebook">
+      <mat-icon>facebook</mat-icon>
+    </button>
+    <h3 style="text-align: center;">Copyright © 2021 - We Connect Bemol. TODOS OS DIREITOS RESERVADOS.</h3>
+  </mat-toolbar>
+</footer>

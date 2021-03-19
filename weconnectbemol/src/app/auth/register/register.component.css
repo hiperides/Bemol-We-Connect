@@ -1,0 +1,12 @@
+.register-form {
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+mat-card{
+    width: 1000px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
